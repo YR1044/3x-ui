@@ -37,7 +37,7 @@ var defaultValueMap = map[string]string{
 	"expireDiff":         "0",
 	"trafficDiff":        "0",
 	"remarkModel":        "-ieo",
-	"timeLocation":       "Asia/Tehran",
+	"timeLocation":       "Local",
 	"tgBotEnable":        "false",
 	"tgBotToken":         "",
 	"tgBotProxy":         "",
@@ -241,6 +241,10 @@ func (s *SettingService) GetXrayConfigTemplate() (string, error) {
 
 func (s *SettingService) GetListen() (string, error) {
 	return s.getString("webListen")
+}
+
+func (s *SettingService) SetListen(ip string) error {
+	return s.setString("webListen", ip)
 }
 
 func (s *SettingService) GetWebDomain() (string, error) {
